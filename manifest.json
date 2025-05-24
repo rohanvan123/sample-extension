@@ -1,0 +1,22 @@
+{
+  "name": "Link Extension",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["sidePanel"],
+  "action": {
+    "default_title": "Open Side Panel"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "index.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["index.js", "index.css"],
+      "matches": ["chrome-extension://*/*"]
+    }
+  ]
+}
