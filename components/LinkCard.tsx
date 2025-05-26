@@ -1,19 +1,21 @@
-import React from "react"
+import React, { useState } from "react"
 
 type LinkCardProps = {
   title: string
   url: string
-  index: number
-  handleDelete: (index: number) => void
+  index: string
+  handleDelete: (index: string) => void
 }
 
 const LinkCard = ({ title, url, index, handleDelete }: LinkCardProps) => {
+  const [copied, setCopied] = useState(false)
   const handleCopy = () => {
     navigator.clipboard
       .writeText(url)
       .then(() => {
         console.log("Copied to clipboard:", url)
-        // Optionally show a temporary "Copied!" toast or icon
+        setCopied(true)
+        setTimeout(() => setCopied(false), 1000) // Reset copied state after 1 second
       })
       .catch((err) => {
         console.error("Failed to copy: ", err)
@@ -41,7 +43,7 @@ const LinkCard = ({ title, url, index, handleDelete }: LinkCardProps) => {
           onClick={handleCopy}
           title="Copy to clipboard"
           className="copy-button">
-          📋
+          {copied ? "✅" : "📋"}
         </button>
       </div>
     </li>

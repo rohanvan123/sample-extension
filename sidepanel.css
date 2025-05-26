@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 40px auto;
+  margin: 20px auto;
   max-width: 800px;
   background: #f4f4f4;
   padding: 20px;
@@ -23,11 +23,10 @@ input[type="text"] {
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
-  margin-right: 10px;
 }
 
 .submit-button {
-  padding: 10px 15px;
+  padding: 10px 13px;
   border: none;
   background-color: #007bff;
   color: white;
@@ -73,7 +72,7 @@ a:hover {
 }
 
 #link-name {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .link-form {
@@ -85,4 +84,45 @@ a:hover {
 .submit-container {
   display: flex;
   justify-content: center;
+  gap: 10px;
+}
+
+.experience-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+textarea {
+  resize: vertical;
+  height: 6rem;
+  overflow: auto;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+}
+
+label {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.experience-sub-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+.copy-btn-large {
+  padding: 10px 13px;
+  margin-top: 10px;
+  width: 100%;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
 }

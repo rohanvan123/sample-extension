@@ -18,7 +18,7 @@ const cache = createCache({
 })
 
 function IndexPopup() {
-  const [currentFrame, setCurrentFrame] = useState(frames[0])
+  const [currentFrame, setCurrentFrame] = useState(frames[1])
   return (
     <CacheProvider value={cache}>
       <div>
