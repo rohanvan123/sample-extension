@@ -26,7 +26,7 @@ input[type="text"] {
   margin-right: 10px;
 }
 
-button {
+.submit-button {
   padding: 10px 15px;
   border: none;
   background-color: #007bff;
@@ -37,6 +37,7 @@ button {
 
 button:hover {
   background-color: #0056b3;
+  cursor: pointer;
 }
 
 ul {
@@ -50,8 +51,9 @@ li {
   padding: 10px;
   border-radius: 6px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 a {
@@ -63,8 +65,24 @@ a:hover {
   text-decoration: underline;
 }
 
-#link-sub-containter {
+.link-sub-containter {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+#link-name {
+  font-size: 14px;
+}
+
+.link-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: center;
 }
