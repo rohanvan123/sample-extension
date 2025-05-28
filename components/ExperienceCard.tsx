@@ -44,21 +44,22 @@ const ExperienceCard = ({
         </button>
       </div>
       <div>
-        <p>
+        <p style={{ fontStyle: "italic", fontSize: "0.9rem" }}>
           <b>{position}</b>
         </p>
       </div>
       <div style={{ whiteSpace: "pre-wrap" }}>
-        <p>{!expanded ? `${description.substring(0, 95)} ...` : description}</p>
-        <div className="experience-sub-container">
-          <p>Click to expand</p>
-          <button onClick={() => setExpanded(!expanded)}>
-            {expanded ? "▲" : "▼"}
-          </button>
-        </div>
+        <p>
+          {!expanded
+            ? `${description.substring(0, 95)} ... `
+            : `${description} `}
+          <a onClick={() => setExpanded(!expanded)}>
+            {expanded ? "Less" : "More"}
+          </a>
+        </p>
       </div>
       <button onClick={handleCopy} className="copy-btn-large">
-        {copied ? "✅ Copied!" : "📋 Copy"}
+        {copied ? "✅ Copied!" : "📋 Copy Description"}
       </button>
     </li>
   )

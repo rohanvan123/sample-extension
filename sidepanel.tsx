@@ -6,11 +6,11 @@ import createCache from "@emotion/cache"
 import { CacheProvider } from "@emotion/react"
 import { Box, Tab, Tabs } from "@mui/material"
 
+import BlurbFrame from "~components/BlurbFrame"
 import ExperienceFrame from "~components/ExperienceFrame"
 import LinkFrame from "~components/LinkFrame"
-import ProjectFrame from "~components/ProjectFrame"
 
-const frames = ["Links", "Experiences", "Projects"]
+const frames = ["Links", "Experiences", "Misc"]
 
 const cache = createCache({
   key: "css",
@@ -18,7 +18,7 @@ const cache = createCache({
 })
 
 function IndexPopup() {
-  const [currentFrame, setCurrentFrame] = useState(frames[1])
+  const [currentFrame, setCurrentFrame] = useState(frames[2])
   return (
     <CacheProvider value={cache}>
       <div>
@@ -40,7 +40,7 @@ function IndexPopup() {
         </Box>
         {currentFrame === "Links" && <LinkFrame />}
         {currentFrame === "Experiences" && <ExperienceFrame />}
-        {currentFrame === "Projects" && <ProjectFrame />}
+        {currentFrame === "Misc" && <BlurbFrame />}
       </div>
     </CacheProvider>
   )

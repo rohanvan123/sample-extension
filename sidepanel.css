@@ -126,3 +126,20 @@ label {
   border-radius: 6px;
   cursor: pointer;
 }
+
+.link-list-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blurb-form-link-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.blurb-form-remove-link {
+  padding: 0px 10px;
+}

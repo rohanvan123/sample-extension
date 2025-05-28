@@ -69,7 +69,7 @@ const ExperienceFrame = () => {
           value={descriptionInput}
           onChange={(e) => setDescriptionInput(e.target.value)}></textarea>
         <button type="submit" className="submit-button">
-          Add
+          Save Experience
         </button>
       </form>
       <ul id="linkList">
