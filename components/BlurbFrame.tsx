@@ -13,25 +13,27 @@ interface StoredBlurb {
   links: string[]
 }
 
-const BlurbFrame = () => {
-  const [blurbs, setBlurbs] = useState<StoredBlurb[]>(mockBlurbs)
+const BlurbFrame = ({ mock }) => {
+  const [blurbs, setBlurbs] = mock
+    ? useState<StoredBlurb[]>(mockBlurbs)
+    : useStorage<StoredBlurb[]>("blurbs", [])
   const [titleInput, setTitleInput] = useState("")
   const [descriptionInput, setDescriptionInput] = useState("")
-  const [linksInput, setLinksInput] = useState<string[]>([])
+  const [linksInput, setLinksInput] = useState<string[]>([""])
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    // const newExperience: StoredExperience = {
-    //   index: crypto.randomUUID(),
-    //   company: companyInput,
-    //   position: positionInput,
-    //   description: descriptionInput
-    // }
+    const newBlurb: StoredBlurb = {
+      index: crypto.randomUUID(),
+      title: titleInput,
+      description: descriptionInput,
+      links: linksInput
+    }
 
-    // setExperiences((prevExperiences) => [...prevExperiences, newExperience])
-    // setCompanyInput("")
-    // setPositionInput("")
-    // setDescriptionInput("")
+    setBlurbs((prevBlurbs) => [...prevBlurbs, newBlurb])
+    setTitleInput("")
+    setDescriptionInput("")
+    setLinksInput([""])
   }
 
   const handleLinkChange = (index: number, value: string) => {
@@ -67,7 +69,7 @@ const BlurbFrame = () => {
         <label>Description</label>
         <textarea
           id="descriptionInput"
-          placeholder={`• Developed a full-stack web application to display a user\’s investment portfolio`}
+          placeholder={`• Developed a full-stack web application to display a users investment portfolio`}
           required
           value={descriptionInput}
           onChange={(e) => setDescriptionInput(e.target.value)}></textarea>

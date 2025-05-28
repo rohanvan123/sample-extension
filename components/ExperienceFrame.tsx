@@ -2,6 +2,8 @@ import React, { useState } from "react"
 
 import { useStorage } from "@plasmohq/storage/hook"
 
+import mockExperiences from "~mock_data/mock_experiences"
+
 import ExperienceCard from "./ExperienceCard"
 
 interface StoredExperience {
@@ -11,11 +13,10 @@ interface StoredExperience {
   description: string
 }
 
-const ExperienceFrame = () => {
-  const [experiences, setExperiences] = useStorage<StoredExperience[]>(
-    "experiences",
-    []
-  )
+const ExperienceFrame = ({ mock }) => {
+  const [experiences, setExperiences] = mock
+    ? useState<StoredExperience[]>(mockExperiences)
+    : useStorage<StoredExperience[]>("experiences", [])
   const [companyInput, setCompanyInput] = useState("")
   const [positionInput, setPositionInput] = useState("")
   const [descriptionInput, setDescriptionInput] = useState("")

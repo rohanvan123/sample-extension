@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { useStorage } from "@plasmohq/storage/hook"
 
 import LinkCard from "~components/LinkCard"
+import mockLinks from "~mock_data/mock_links"
 
 interface StoredLink {
   index: string
@@ -10,8 +11,10 @@ interface StoredLink {
   title: string
 }
 
-const LinkFrame = () => {
-  const [links, setLinks] = useStorage<StoredLink[]>("links", [])
+const LinkFrame = ({ mock }) => {
+  const [links, setLinks] = mock
+    ? useState<StoredLink[]>(mockLinks)
+    : useStorage<StoredLink[]>("links", [])
   console.log("Links from storage:", links)
   const [linkInput, setLinkInput] = React.useState("")
   const [linkTitle, setLinkTitle] = React.useState("")

@@ -18,7 +18,8 @@ const cache = createCache({
 })
 
 function IndexPopup() {
-  const [currentFrame, setCurrentFrame] = useState(frames[2])
+  const mock = false
+  const [currentFrame, setCurrentFrame] = useState(frames[0])
   return (
     <CacheProvider value={cache}>
       <div>
@@ -38,9 +39,9 @@ function IndexPopup() {
             ))}
           </Tabs>
         </Box>
-        {currentFrame === "Links" && <LinkFrame />}
-        {currentFrame === "Experiences" && <ExperienceFrame />}
-        {currentFrame === "Misc" && <BlurbFrame />}
+        {currentFrame === "Links" && <LinkFrame mock={mock} />}
+        {currentFrame === "Experiences" && <ExperienceFrame mock={mock} />}
+        {currentFrame === "Misc" && <BlurbFrame mock={mock} />}
       </div>
     </CacheProvider>
   )
